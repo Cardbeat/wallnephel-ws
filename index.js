@@ -5,6 +5,10 @@ const login = require('./src/server/routes/login.js')
 const webpack = require('webpack');
 const config = require('./webpack.config');
 const compiler = webpack(config);
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
 
 app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath
@@ -15,8 +19,6 @@ app.use(require('webpack-dev-middleware')(compiler, {
 app.get('/', function(req, res) {
   res.sendFile('dist/index.html', { root: __dirname });
 });
-
-
 
 app.use('/login', login)
 

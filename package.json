@@ -12,6 +12,7 @@
   "author": "Jefferson Oliveira",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.2",
     "firebase": "^5.7.2",
     "react-router": "^4.3.1",

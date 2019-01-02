@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router'
+import Dashboard from './Dashboard'
 
 
 export default class Login extends Component {
@@ -7,6 +9,7 @@ export default class Login extends Component {
     }
   
     handleSubmit(event) {
+      event.preventDefault()
       let name = document.getElementById('name').value
       let password = document.getElementById('password').value
       let data = {
@@ -17,10 +20,13 @@ export default class Login extends Component {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
-            'Content-type': 'application/json'
-          }
-    }).then(result => result.json().then(data => 
-        console.log('added')
+          'Content-type': 'application/json'
+        }
+    }).then(result => result.json().then(data => {
+      if( data === true ) {
+        return < Redirect to='/dashboard' />
+      }
+    }
 ))
     }
   
