@@ -1,15 +1,15 @@
 {
   "name": "react-express-boilerplate",
   "version": "1.0.0",
-  "description": "a starter project in React (using Webpack) with an ExpressJS server",
+  "description": "A Web Service for an android app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
+    "start": "nodemon ./src/server/index.js",
     "start-dev": "./node_modules/.bin/webpack-dev-server --port 3000 --content-base dist/",
     "build": "./node_modules/.bin/webpack"
   },
-  "author": "Jeffery Shivers",
+  "author": "Jefferson Oliveira",
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.2",
@@ -20,9 +20,11 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "nodemon": "^1.18.9",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "webpack": "^4.28.3",
+    "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.14"
   }
 }

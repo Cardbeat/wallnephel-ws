@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var path = require('path');
+import './src/server/index.js'
 
 
 const webpack = require('webpack');
@@ -11,7 +12,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath
 }));
 
-app.get('*', function(req, res) {
+app.get('/', function(req, res) {
   res.sendFile('dist/index.html', { root: __dirname });
 });
 
