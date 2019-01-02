@@ -7,3 +7,5 @@ export default class Dashboard extends Component {
         )
     }
 }
+
+// will be showing all images and crud actions, better with redux? or no?
