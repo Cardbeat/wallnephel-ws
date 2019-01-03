@@ -4,8 +4,12 @@ import Dashboard from './Dashboard'
 
 
 export default class Login extends Component {
-    handleChange(event) {
-      this.setState({value: event.target.value});
+    constructor() {
+      super()
+      this.state= {
+        toDashboard : false
+      }
+      this.handleSubmit =  this.handleSubmit.bind(this)
     }
   
     handleSubmit(event) {
@@ -24,13 +28,18 @@ export default class Login extends Component {
         }
     }).then(result => result.json().then(data => {
       if( data === true ) {
-        return < Redirect to='/dashboard' />
+        this.setState({
+          toDashboard: true
+        })
       }
     }
 ))
     }
   
     render() {
+      if(this.state.toDashboard) {
+        return <Redirect to='/dashboard/'/>
+      }
       return (
         <div>
             <form onSubmit={this.handleSubmit}>
@@ -40,7 +49,7 @@ export default class Login extends Component {
                 </label>
                 <label>
                 Password:
-                <input type="text" id="password" />
+                <input type="password" id="password" />
                 </label>
                 <input type="submit" value="Submit" />
                 </form>
