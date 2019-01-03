@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json()) // never forget body parser again pls 
-
+app.use(express.static('./src/client/assets'));
 app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath
 }));
