@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import MdInputChips from "react-mdchips";
+import Image from './Image'
 
 
 export default class NewPost extends Component {
@@ -10,21 +12,27 @@ export default class NewPost extends Component {
           <div className="modalStyle">
             <div className="newRecipeStyle">
               <form onSubmit={this.handleSubmit.bind(this)}>
-                <div >
-                  <label className="label" htmlFor="recipe_name">Recipe</label>
-                  <input  id="recipe" type="text"  required className="validate" />
-          </div>
                 <div>
-                  <label className="label" htmlFor="recipe_name">Ingredients</label>
-                  <input  id="ingredients" defaultValue="" placeholder="Ex: egg, rice, olive oil" type="text" required className="validate" />
-          </div>
-                 <button className="btn orange lighten-1"> create recipe </button>
+                  < Image />
+                </div>
+                <div>
+                  <input  id="name" type="text" placeholder="Name"  className="validate" />
+                </div>
+                <div>
+                  <MdInputChips placeholder="Categories" containerClassName="outer-tags-div" onEnter={this.onEnterEvt.bind(this)} inputClassName="tags-input" max="10" />
+                </div>
+                <button className="btn orange lighten-1"> create post </button>
               </form>
             </div>
           </div>
         </div>
       );
     }
+
+    onEnterEvt(e) {
+      console.log(e)
+    }
+
     close(e) {
       e.preventDefault();
       if (this.props.onClose) {
@@ -33,14 +41,7 @@ export default class NewPost extends Component {
     }
     
     handleSubmit(e) {
-      e.preventDefault();
-      let recipe = document.getElementById("recipe").value;
-      let ingredients = document.getElementById("ingredients").value.split(',');
-      let fullRecipe = {
-        recipe,
-        ingredients
-      }
-      this.props.createRecipe(fullRecipe)
-      this.props.onClose()
+      e.preventDefault()
+      // this.props.onClose()
     }
   }

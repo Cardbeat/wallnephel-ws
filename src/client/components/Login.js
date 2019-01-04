@@ -45,11 +45,11 @@ export default class Login extends Component {
             <form onSubmit={this.handleSubmit}>
                 <label>
                 Name:
-                <input type="text" id="name" />
+                <input type="text" required id="name" />
                 </label>
                 <label>
                 Password:
-                <input type="password" id="password" />
+                <input type="password" required id="password" />
                 </label>
                 <input type="submit" value="Submit" />
                 </form>

@@ -9,14 +9,14 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json()) // never forget body parser again pls 
-app.use(express.static('./src/client/assets'));
+app.use(express.static('./dist/public'));
 app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath
 }));
 
 
 
-app.get('/', function(req, res) {
+app.get('*', function(req, res) {
   res.sendFile('dist/index.html', { root: __dirname });
 });
 

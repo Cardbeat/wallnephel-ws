@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Mogra');
+
+html,body{ margin:0; padding:0; height:100%; width:100%; }
+
+.backdropStyle {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: '4';
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0, 0.5);
+  position: fixed;
+}
+
+.title {
+  color: #FE8B78;
+}
+
+.newRecipeStyle {
+  background: white ;
+  display: block;
+  z-index: 5;
+  padding: 30px;
+}
+
+.label {
+  font-size: 30px;
+}
+
+.modalStyle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 600px;
+  width: 600px;
+  z-index: 5;
+}
+
+
+.recipeFont {
+  font-family: 'Mogra', cursive;
+}
+
+.recipeColor {
+  background:#FE8B78;
+  color: white;
+}
+
+.collapsible-body {
+  background:#E2D9CA;
+  color: #805E5F;
+}
+
+.ingredients {
+  color: #805E5F;
+}
+
+
+.newRecipe {
+  background:#ffb74d;
+}
+
+.newRecipe:hover {
+  background: #BBDF7F;
+}
+
+.chips {
+  min-height: 36px;
+  border-bottom: 1px solid rgb(224, 224, 224);
+  line-height: 1;
+  font-size: 1em;
+}
+
+.chips-input {
+  display: inline-block;
+  width: 33% !important;
+  min-height: 36px;
+  margin: 0 0 5px 10px !important;
+  border: 0;
+  outline: none;
+  font-size: 0.9rem;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.chip {
+  display: inline-block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 25px;
+  position: relative;
+  padding: 0;
+  height: 32px;
+}
+
+.chip .chip-value {
+  display: inline-block;
+  padding-left: 15px;
+  padding-right: 7.5px;
+  background: #555;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 15px 0 0 15px;
+}
+
+.chip .chip-delete-button {
+  background: #555;
+  color: #fff;
+  border: 0;
+  border-radius: 0 15px 15px 0;
+  padding: 5px 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -25px;
+  line-height: 0.5;
+  font-weight: bold;
+}
