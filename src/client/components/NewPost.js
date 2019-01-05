@@ -47,4 +47,6 @@ export default class NewPost extends Component {
   }
 
 
-  // make API calls for upload  image to storage and a reference to realtime database 
+  // make API calls for upload  image to storage and a reference to realtime database
+  
+  // needed to work with firestore and cloud database
