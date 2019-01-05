@@ -45,3 +45,6 @@ export default class NewPost extends Component {
       // this.props.onClose()
     }
   }
+
+
+  // make API calls for upload  image to storage and a reference to realtime database 
