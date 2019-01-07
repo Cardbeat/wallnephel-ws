@@ -14,6 +14,7 @@ class Upload extends React.Component {
     this.setState({
       file: URL.createObjectURL(event.target.files[0])
     })
+
   }
 
   render() {
@@ -21,7 +22,7 @@ class Upload extends React.Component {
       <div>
         <img src={this.state.file} height="90" width="90"/>
         <br/>
-        <input type="file" onChange={this.handleChange}/>
+        <input id="image" type="file" onChange={this.handleChange} required />
       </div>
     );
   }

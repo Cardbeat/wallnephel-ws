@@ -12,6 +12,7 @@
   "author": "Jefferson Oliveira",
   "license": "MIT",
   "dependencies": {
+    "@google-cloud/storage": "^2.3.4",
     "body-parser": "^1.18.3",
     "express": "^4.16.2",
     "firebase": "^5.7.2",

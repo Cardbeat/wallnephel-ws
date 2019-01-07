@@ -4,8 +4,15 @@ import Image from './Image'
 
 
 export default class NewPost extends Component {
+  constructor(props) {
+    super()
+    this.state = {
+      image: ''
+    }
+
+    this.getImage = this.getImage.bind(this)
+  }
     render() {
-      console.log(db)
       if (this.props.isOpen === false) return null;   
       return (
         <div>
@@ -14,7 +21,7 @@ export default class NewPost extends Component {
             <div className="newRecipeStyle">
               <form onSubmit={this.handleSubmit.bind(this)}>
                 <div>
-                  < Image />
+                  < Image getImage={this.getImage} />
                 </div>
                 <div>
                   <input  id="name" type="text" placeholder="Name"  className="validate" />
@@ -43,8 +50,17 @@ export default class NewPost extends Component {
     
     handleSubmit(e) {
       e.preventDefault()
-      // this.props.onClose()
     }
+
+    getImage(img) {
+      this.setState({
+        image: img
+      })
+
+
+    }
+
+
   }
 
 
