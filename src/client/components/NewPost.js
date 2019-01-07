@@ -5,6 +5,7 @@ import Image from './Image'
 
 export default class NewPost extends Component {
     render() {
+      console.log(db)
       if (this.props.isOpen === false) return null;   
       return (
         <div>

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Wallnephew</title>
+    <title>wallnephel-ws</title>
     <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script>
@@ -17,7 +17,9 @@
         messagingSenderId: "680463894375"
       };
       firebase.initializeApp(config);
-        
+      const db = firebase.firestore();
+      db.settings({ timestampsInSnapshots: true });
+
     </script>
      <!-- Compiled and minified CSS -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
