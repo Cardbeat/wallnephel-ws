@@ -53,9 +53,7 @@ export default class NewPost extends Component {
     }
 
     getImage(img) {
-      this.setState({
-        image: img
-      })
+      console.log(img)
 
 
     }

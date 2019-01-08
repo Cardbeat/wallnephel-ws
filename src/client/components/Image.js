@@ -14,7 +14,23 @@ class Upload extends React.Component {
     this.setState({
       file: URL.createObjectURL(event.target.files[0])
     })
-
+    const file = event.target.files[0]
+    const uploadTask = firebase.storage().ref('images/' + event.target.files[0].name).put(event.target.files[0])
+    uploadTask.on('state_changed',  
+    
+    (snapshot) => {
+    },
+    
+    (error) => {
+        console.log(error)
+    },
+    
+    () => {
+      firebase.storage().ref().child(`images/${file.name}`).getDownloadURL().then( url => {
+        this.props.getImage(url)
+      })
+     }
+    )
   }
 
   render() {
