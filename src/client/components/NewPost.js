@@ -13,6 +13,7 @@ export default class NewPost extends Component {
     }
 
     this.getImage = this.getImage.bind(this)
+    this.getName = this.getName.bind(this)
   }
     render() {
       if (this.props.isOpen === false) return null;   
@@ -26,7 +27,7 @@ export default class NewPost extends Component {
                   < Image getImage={this.getImage} />
                 </div>
                 <div>
-                  <input  id="name" type="text" placeholder="Name"  className="validate" />
+                  <input  id="name" type="text" onChange={this.getName} placeholder="Name" required className="validate" />
                 </div>
                 <div>
                   <MdInputChips placeholder="Categories" containerClassName="outer-tags-div" onEnter={this.onEnterEvt.bind(this)} inputClassName="tags-input" max="10" />
@@ -46,6 +47,13 @@ export default class NewPost extends Component {
       })
     }
 
+    getName() {
+      let name = document.getElementById('name').value
+      this.setState({
+        name: name
+      })
+    }
+
     close(e) {
       e.preventDefault();
       if (this.props.onClose) {
@@ -56,7 +64,7 @@ export default class NewPost extends Component {
     handleSubmit(e) {
       e.preventDefault()
       // api call db collection
-      debugger.collection('posts').add({
+      db.collection('posts').add({
         name: this.state.name,
         image: this.state.image,
         categories: this.state.categories
