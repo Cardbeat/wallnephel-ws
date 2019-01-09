@@ -7,7 +7,9 @@ export default class NewPost extends Component {
   constructor(props) {
     super()
     this.state = {
-      image: ''
+      image: '',
+      categories: [],
+      name: ''
     }
 
     this.getImage = this.getImage.bind(this)
@@ -39,6 +41,9 @@ export default class NewPost extends Component {
 
     onEnterEvt(e) {
       console.log(e)
+      this.setState({
+        categories: e
+      })
     }
 
     close(e) {
@@ -50,12 +55,14 @@ export default class NewPost extends Component {
     
     handleSubmit(e) {
       e.preventDefault()
+      // api call db collection
     }
 
     getImage(img) {
       console.log(img)
-
-
+      this.setState({
+        image: img
+      })
     }
 
 

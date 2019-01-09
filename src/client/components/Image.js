@@ -26,9 +26,7 @@ class Upload extends React.Component {
     },
     
     () => {
-      firebase.storage().ref().child(`images/${file.name}`).getDownloadURL().then( url => {
-        this.props.getImage(url)
-      })
+      this.props.getImage(file.name)
      }
     )
   }
