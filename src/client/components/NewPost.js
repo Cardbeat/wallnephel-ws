@@ -56,6 +56,11 @@ export default class NewPost extends Component {
     handleSubmit(e) {
       e.preventDefault()
       // api call db collection
+      debugger.collection('posts').add({
+        name: this.state.name,
+        image: this.state.image,
+        categories: this.state.categories
+      })
     }
 
     getImage(img) {
