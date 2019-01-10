@@ -11,16 +11,18 @@ export default class Exhibition extends Component {
     componentWillMount() {
         // this.props.post
         let image = this.props.post.image
-        console.log(image)
-        firebase.storage().ref('posts').child(image).getDownloadURL().then( url => {
-            console.log(url.toString())
+        firebase.storage().ref().child(`images/${image}`).getDownloadURL().then( url => {
+            this.setState({
+                url: url
+            })
+            console.log(this.state.url)
         })
     }
 
     render() {
         return (
             <div>
-                <h1>isto é um card</h1>
+                <img src={this.state.url} height='600' width='400' />
             </div>
         )
     }
