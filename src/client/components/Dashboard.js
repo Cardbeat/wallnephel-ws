@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import NewPost from './NewPost'
 import EditPost from './EditPost'
+import Exhibition from './Exhibition'
 
 let data = (typeof localStorage["recipes"] != "undefined") ? JSON.parse(localStorage.getItem('recipes')) : [
     {recipe: 'Pasta',ingredients: ['egg', 'olive oil', 'flour']},
@@ -30,6 +31,7 @@ export default class Dashboard extends Component {
                   </div>
                 </nav>
             <div className="container" >
+            < Exhibition />
               <div className="row">
                 <div className="col s12">
                   <NewPost
