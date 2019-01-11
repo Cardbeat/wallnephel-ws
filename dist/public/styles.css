@@ -120,3 +120,28 @@ html,body{ margin:0; padding:0; height:100%; width:100%; }
   line-height: 0.5;
   font-weight: bold;
 }
+
+.card.large {
+  height: 620px;
+  width: 200px;
+  overflow: hidden;
+}
+
+.imageCard {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 2%);
+}
+
+.centerLoader {
+  position: relative;
+  left: 50%;
+  margin-top: 150px;
+}
+
+.logo {
+  margin-top: 1%;
+  max-width: 44px;
+  max-height: 44px;
+}

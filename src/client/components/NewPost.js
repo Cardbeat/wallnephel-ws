@@ -69,6 +69,7 @@ export default class NewPost extends Component {
         image: this.state.image,
         categories: this.state.categories
       })
+      this.props.onClose()
     }
 
     getImage(img) {

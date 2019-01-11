@@ -26,7 +26,9 @@ export default class Exhibition extends Component {
         })
         return (
             <div>
-                {card}
+                <div className="row">
+                    {card}
+                </div>
             </div>
         )
     }

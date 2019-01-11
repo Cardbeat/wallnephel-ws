@@ -24,16 +24,16 @@ export default class Dashboard extends Component {
             <div>
                 <nav className="deep-purple darken-1">
                   <div className="nav-wrapper container ">
-                  <img src='https://i.imgur.com/Alvd65L.png' height='64' width='64' />
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                  <img className="logo" src='https://i.imgur.com/Alvd65L.png' height='54' width='54' />
+                    <ul id="nav-mobile" class="right ">
                         <li><button className="btn purple lighten-4" onClick={() => this.openModalNew()}> New Post </button></li>
                     </ul>
                   </div>
                 </nav>
-            <div className="container" >
+            <div>
             < Exhibition />
-              <div className="row">
-                <div className="col s12">
+              <div>
+                <div>
                   <NewPost
                     isOpen={this.state.isModalNewOpen}
                     onClose={() => this.closeModal()}
