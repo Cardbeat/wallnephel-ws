@@ -38,6 +38,12 @@ export default class Exhibition extends Component {
                 </div>
             )
         }
+
+        let categories = this.props.post.categories.map( (categorie, index) => {
+            return (
+                <li class="collection-item" key={index}>{categorie}</li>
+            )
+        })
         return (
             <div className="card large col s12 m6 l3">
                 <div className=" waves-effect waves-block waves-light">
@@ -45,8 +51,11 @@ export default class Exhibition extends Component {
                 </div>
                 
                 <div className="card-reveal">
-                    <span className="card-title grey-text text-darken-4">{this.props.post.name}<i class="material-icons right">close</i></span>
-                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                    <h1 className="card-title grey-text text-darken-4">{this.props.post.name}<i class="material-icons right">close</i></h1>
+                    <ul class="collection with-header">
+                        <li class="collection-header"><h6>Categories:</h6></li>
+                        {categories}
+                    </ul>
                 </div>
             </div>
         )
