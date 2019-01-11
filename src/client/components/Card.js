@@ -51,11 +51,15 @@ export default class Exhibition extends Component {
                 </div>
                 
                 <div className="card-reveal">
-                    <h1 className="card-title grey-text text-darken-4">{this.props.post.name}<i class="material-icons right">close</i></h1>
+                    <h1 className="center card-title grey-text text-darken-4">{this.props.post.name}<i className="material-icons right">close</i></h1>
                     <ul class="collection with-header">
                         <li class="collection-header"><h6>Categories:</h6></li>
                         {categories}
                     </ul>
+                    <div className="buttons ">
+                        <a className="edit right btn-floating btn-large waves-effect waves-light  cyan"><i class="material-icons">edit</i></a>
+                        <a className="remove left  btn-floating btn-large waves-effect waves-light  red"><i class="material-icons">remove</i></a>
+                    </div>
                 </div>
             </div>
         )
