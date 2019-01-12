@@ -7,16 +7,23 @@ export default class Exhibition extends Component {
         this.state = {
             url: ''
         }
+        this.handleRemove = this.handleRemove.bind(this)
     }
     componentWillMount() {
         // this.props.post
         let image = this.props.post.image
+        console.log(this.props.id)
         firebase.storage().ref().child(`images/${image}`).getDownloadURL().then( url => {
             this.setState({
                 url: url
             })
-            console.log(this.state.url)
+            
         })
+    }
+
+    handleRemove() {
+        firebase.storage().ref().child(`images/${this.props.post.image}`).delete()
+        db.collection('posts').doc(this.props.id).delete()
     }
 
     render() {
@@ -58,7 +65,7 @@ export default class Exhibition extends Component {
                     </ul>
                     <div className="buttons ">
                         <a className="edit right btn-floating btn-large waves-effect waves-light  cyan"><i class="material-icons">edit</i></a>
-                        <a className="remove left  btn-floating btn-large waves-effect waves-light  red"><i class="material-icons">remove</i></a>
+                        <a onClick={this.handleRemove} className="remove left  btn-floating btn-large waves-effect waves-light  red"><i class="material-icons">remove</i></a>
                     </div>
                 </div>
             </div>

@@ -14,7 +14,7 @@ export default class Exhibition extends Component {
         db.collection('posts').get().then((snapshot) => {
             snapshot.docs.map( doc => {
                 this.setState({
-                    data: [...this.state.data, doc.data()]
+                    data: [...this.state.data, { id: doc.id, data: doc.data()}]
                 })
             })
         })
@@ -22,7 +22,7 @@ export default class Exhibition extends Component {
 
     render() {
         let card = this.state.data.map( (post , index) => {
-            return < Card post={post} key={index}/>
+            return < Card post={post.data} id={post.id} key={index}/>
         })
         return (
             <div>
