@@ -33,3 +33,5 @@ export default class Exhibition extends Component {
         )
     }
 }
+
+// make this render realtime, snapshot everything 
