@@ -38,7 +38,10 @@ export default class Login extends Component {
   
     render() {
       if(this.state.toDashboard) {
-        return <Redirect to='/dashboard/'/>
+        return <Redirect to={{
+          pathname:'/dashboard',
+          state: { islogged: true}
+        }} />
       }
       return (
         <div>
