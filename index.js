@@ -6,6 +6,7 @@ const webpack = require('webpack');
 const config = require('./webpack.config');
 const compiler = webpack(config);
 const bodyParser = require('body-parser');
+const { join } = require('path')
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json()) // never forget body parser again pls 
@@ -17,7 +18,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 
 app.get('*', function(req, res) {
-  res.sendFile('dist/index.html', { root: __dirname });
+  res.sendFile(join(__dirname, 'dist', 'index.html'))
 });
 
 app.use('/login', login)
