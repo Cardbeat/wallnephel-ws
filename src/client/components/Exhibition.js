@@ -8,21 +8,37 @@ export default class Exhibition extends Component {
         this.state = {
             data: []
         }
+        this.removeCard = this.removeCard.bind(this)
     }
 
     componentWillMount() {
-        db.collection('posts').get().then((snapshot) => {
-            snapshot.docs.map( doc => {
-                this.setState({
-                    data: [...this.state.data, { id: doc.id, data: doc.data()}]
-                })
+        db.collection('posts').onSnapshot(snapshot => {
+            let changes = snapshot.docChanges();
+            changes.map(change => {
+                    if(change.type === 'added') {
+                        this.setState({
+                            data: [...this.state.data, { id: change.doc.id, data: change.doc.data()}]
+                        })
+                    }
             })
         })
     }
 
+    removeCard(number) {
+        let tempData = this.state.data
+        tempData.splice(number, 1)
+        this.setState({
+            data: tempData
+        })
+    }
+
+    updateCard(e) {
+
+    }
+
     render() {
         let card = this.state.data.map( (post , index) => {
-            return < Card post={post.data} id={post.id} key={index}/>
+            return < Card post={post.data} id={post.id} cardNumber={index} removeCard={this.removeCard} key={index}/>
         })
         return (
             <div>
