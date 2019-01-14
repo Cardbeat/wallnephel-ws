@@ -19,11 +19,16 @@ export default class Exhibition extends Component {
             })
             
         })
+        console.log(this.props.cardNumber)
     }
 
     handleRemove() {
-        firebase.storage().ref().child(`images/${this.props.post.image}`).delete()
+        if(confirm('Are you sure you want to delete? this post?')) {
+            firebase.storage().ref().child(`images/${this.props.post.image}`).delete()
         db.collection('posts').doc(this.props.id).delete()
+        this.props.removeCard(this.props.cardNumber)
+        }
+
     }
 
     render() {
