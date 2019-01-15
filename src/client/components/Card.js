@@ -37,7 +37,7 @@ export default class Exhibition extends Component {
 
     handleEdit() {
         this.setState({
-            edit: true
+            edit: !this.state.edit
         })
     }
 
@@ -67,9 +67,13 @@ export default class Exhibition extends Component {
                 </div>
                 
                 <div className="card-reveal">
-                    {this.state.edit? < EditCard /> : < CardInfo post={this.props.post} />}
+                    {this.state.edit? < EditCard post={this.props.post}/> : < CardInfo post={this.props.post} />}
                     <div className="buttons ">
-                        <a onClick={this.handleEdit} className="edit right btn-floating btn-large waves-effect waves-light  cyan"><i class="material-icons">edit</i></a>
+                    {this.state.edit?
+                        <a onClick={this.handleEdit} className="edit right btn-floating btn-large waves-effect waves-light  cyan"><i class="material-icons">check</i></a>
+                        :
+                        <a onClick={this.handleEdit} className="edit right btn-floating btn-large waves-effect waves-light  cyan"><i class="material-icons">edit</i></a>    
+                    }
                         <a onClick={this.handleRemove} className="remove left  btn-floating btn-large waves-effect waves-light  red"><i class="material-icons">remove</i></a>
                     </div>
                 </div>
