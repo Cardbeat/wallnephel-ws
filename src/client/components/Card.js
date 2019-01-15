@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import CardInfo from './CardInfo'
 
 
 export default class Exhibition extends Component {
@@ -50,12 +51,6 @@ export default class Exhibition extends Component {
                 </div>
             )
         }
-
-        let categories = this.props.post.categories.map( (categorie, index) => {
-            return (
-                <li class="collection-item" key={index}>{categorie}</li>
-            )
-        })
         return (
             <div className="card large col s12 m6 l3">
                 <div className=" waves-effect waves-block waves-light">
@@ -63,11 +58,7 @@ export default class Exhibition extends Component {
                 </div>
                 
                 <div className="card-reveal">
-                    <h1 className="center card-title grey-text text-darken-4">{this.props.post.name}<i className="material-icons right">close</i></h1>
-                    <ul class="collection with-header">
-                        <li class="collection-header"><h6>Categories:</h6></li>
-                        {categories}
-                    </ul>
+                    < CardInfo  post={this.props.post}/>
                     <div className="buttons ">
                         <a className="edit right btn-floating btn-large waves-effect waves-light  cyan"><i class="material-icons">edit</i></a>
                         <a onClick={this.handleRemove} className="remove left  btn-floating btn-large waves-effect waves-light  red"><i class="material-icons">remove</i></a>
