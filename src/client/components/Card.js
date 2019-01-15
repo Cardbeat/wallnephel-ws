@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CardInfo from './CardInfo'
+import EditCard from './EditCard'
 
 
 export default class Exhibition extends Component {
@@ -66,7 +67,7 @@ export default class Exhibition extends Component {
                 </div>
                 
                 <div className="card-reveal">
-                    < CardInfo  post={this.props.post}/>
+                    {this.state.edit? < EditCard /> : < CardInfo post={this.props.post} />}
                     <div className="buttons ">
                         <a onClick={this.handleEdit} className="edit right btn-floating btn-large waves-effect waves-light  cyan"><i class="material-icons">edit</i></a>
                         <a onClick={this.handleRemove} className="remove left  btn-floating btn-large waves-effect waves-light  red"><i class="material-icons">remove</i></a>
