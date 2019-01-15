@@ -6,9 +6,11 @@ export default class Exhibition extends Component {
     constructor(props) {
         super()
         this.state = {
-            url: ''
+            url: '',
+            edit: false
         }
         this.handleRemove = this.handleRemove.bind(this)
+        this.handleEdit = this.handleEdit.bind(this)
     }
     componentWillMount() {
         // this.props.post
@@ -30,6 +32,12 @@ export default class Exhibition extends Component {
         this.props.removeCard(this.props.cardNumber)
         }
 
+    }
+
+    handleEdit() {
+        this.setState({
+            edit: true
+        })
     }
 
     render() {
@@ -60,7 +68,7 @@ export default class Exhibition extends Component {
                 <div className="card-reveal">
                     < CardInfo  post={this.props.post}/>
                     <div className="buttons ">
-                        <a className="edit right btn-floating btn-large waves-effect waves-light  cyan"><i class="material-icons">edit</i></a>
+                        <a onClick={this.handleEdit} className="edit right btn-floating btn-large waves-effect waves-light  cyan"><i class="material-icons">edit</i></a>
                         <a onClick={this.handleRemove} className="remove left  btn-floating btn-large waves-effect waves-light  red"><i class="material-icons">remove</i></a>
                     </div>
                 </div>
