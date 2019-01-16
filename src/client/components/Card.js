@@ -8,22 +8,22 @@ export default class Exhibition extends Component {
         super()
         this.state = {
             url: '',
-            edit: false
+            edit: false,
+            update: []
         }
         this.handleRemove = this.handleRemove.bind(this)
         this.handleEdit = this.handleEdit.bind(this)
+        this.handleUpdate = this.handleUpdate.bind(this)
     }
     componentWillMount() {
         // this.props.post
         let image = this.props.post.image
-        console.log(this.props.id)
         firebase.storage().ref().child(`images/${image}`).getDownloadURL().then( url => {
             this.setState({
                 url: url
             })
             
         })
-        console.log(this.props.cardNumber)
     }
 
     handleRemove() {
@@ -39,6 +39,23 @@ export default class Exhibition extends Component {
         this.setState({
             edit: !this.state.edit
         })
+    }
+    handleUpdate(newPost) {
+        // this.setState({
+        //     update: newPost
+        // })
+        db.collection('posts').doc(this.props.id).set({
+            name: newPost.name,
+            categories: newPost.categories,
+            image: newPost.image
+        })
+        firebase.storage().ref().child(`images/${newPost.image}`).getDownloadURL().then( url => {
+            this.setState({
+                url: url
+            })
+            
+        })
+        
     }
 
     render() {
@@ -67,7 +84,7 @@ export default class Exhibition extends Component {
                 </div>
                 
                 <div className="card-reveal">
-                    {this.state.edit? < EditCard post={this.props.post}/> : < CardInfo post={this.props.post} />}
+                    {this.state.edit? < EditCard newPost={this.handleUpdate} post={this.props.post}/> : < CardInfo post={this.props.post} />}
                     <div className="buttons ">
                     {this.state.edit?
                         <a onClick={this.handleEdit} className="edit right btn-floating btn-large waves-effect waves-light  cyan"><i class="material-icons">check</i></a>

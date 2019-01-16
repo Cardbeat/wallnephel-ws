@@ -41,7 +41,6 @@ export default class NewPost extends Component {
     }
 
     onEnterEvt(e) {
-      console.log(e)
       this.setState({
         categories: e
       })

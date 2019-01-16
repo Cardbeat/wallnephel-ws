@@ -1,6 +1,6 @@
 const React = require('react')
 
-class Upload extends React.Component {
+class Image extends React.Component {
   constructor(props){
     super(props)
     this.state = {
@@ -41,4 +41,4 @@ class Upload extends React.Component {
     );
   }
 }
-module.exports = Upload
+module.exports = Image

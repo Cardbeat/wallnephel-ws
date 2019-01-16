@@ -19,6 +19,17 @@ export default class Exhibition extends Component {
                         this.setState({
                             data: [...this.state.data, { id: change.doc.id, data: change.doc.data()}]
                         })
+                    } else if(change.type === 'modified') {
+                        console.log('changed')
+                        let update = this.state.data
+                        update.map((item, index) => {
+                            if(item.id === change.doc.id) {
+                                update[index] = {id: change.doc.id, data: change.doc.data()}
+                            }
+                        })
+                        this.setState({
+                            data: update
+                        })
                     }
             })
         })
