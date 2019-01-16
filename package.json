@@ -16,6 +16,7 @@
     "express": "^4.16.2",
     "firebase": "^5.7.2",
     "material-ui-chip-input": "^1.0.0-beta.11",
+    "mime": "^2.4.0",
     "react-image-parser": "^2.0.2",
     "react-images-upload": "^1.2.5",
     "react-mdchips": "^1.0.3",
