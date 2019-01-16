@@ -22,6 +22,7 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "simple-react-form": "^2.2.1",
+    "webpack": "^4.28.4",
     "webpack-dev-middleware": "^2.0.3"
   },
   "devDependencies": {
@@ -33,7 +34,7 @@
     "nodemon": "^1.18.9",
     "react": "^16.2.0",
     "react-dom": ">=16.2.1",
-    "webpack": "^4.28.3",
+    "webpack": "^4.28.4",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.14"
   }
