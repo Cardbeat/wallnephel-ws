@@ -15,6 +15,8 @@ app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath
 }));
 
+let port = process.env.PORT || 8080
+
 
 
 app.get('*', function(req, res) {
@@ -24,4 +26,4 @@ app.get('*', function(req, res) {
 app.use('/login', login)
 
 
-app.listen(3000);
+app.listen(port);
