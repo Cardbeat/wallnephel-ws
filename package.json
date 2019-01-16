@@ -22,7 +22,6 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "simple-react-form": "^2.2.1",
-    "webpack": "^4.28.4",
     "webpack-dev-middleware": "^2.0.3"
   },
   "devDependencies": {
